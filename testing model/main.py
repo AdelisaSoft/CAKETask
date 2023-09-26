@@ -44,8 +44,8 @@ def load_model(path_to_model: str) -> SVC:
     try:
         # Get the current directory of the main.py script
         current_directory = os.path.dirname(os.path.abspath(__file__))
-
         path_to_model = path_to_model.split("/")
+        
         # Define the relative path to the 'model.pkl' file from the 'main.py' script
         model_file_path = os.path.join(current_directory, \
             path_to_model[0], \
@@ -91,14 +91,13 @@ def make_a_prediction(model: SVC, model_features: list, model_input: dict) -> st
     
 if __name__ == "__main__":
     
-    
     # Load feature names
     feature_names = load_features("../artifacts/churn_model_features.pkl")
-    print(f"\nModel features are {feature_names}")
+    print(f"\n\n\nModel features are {feature_names}")
     
     # Load model
     model = load_model("../artifacts/churn_model.pkl")
-    print(f"\nModel we are using is {model}")
+    print(f"\n\n\nModel we are using is {model}")
     
     model_input = {
         'value_number_of_active_months': 24, 
@@ -106,6 +105,6 @@ if __name__ == "__main__":
         'value_days_to_purchase': 4, 
         'action_create_project':3
     }
-    print(f"\nFor the given input, the output is the following:\
+    print(f"\n\n\nFor the given input, the output is the following:\
         {make_a_prediction(model, feature_names, model_input)}")
     

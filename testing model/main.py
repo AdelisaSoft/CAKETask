@@ -44,8 +44,8 @@ def load_model(path_to_model: str) -> SVC:
     try:
         # Get the current directory of the main.py script
         current_directory = os.path.dirname(os.path.abspath(__file__))
-
         path_to_model = path_to_model.split("/")
+        
         # Define the relative path to the 'model.pkl' file from the 'main.py' script
         model_file_path = os.path.join(current_directory, \
             path_to_model[0], \
